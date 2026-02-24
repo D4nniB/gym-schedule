@@ -62,11 +62,17 @@ async function initSchedule() {
     existing.forEach((el) => el.remove());
 
     for (const row of todayRows) {
-      const group = row[idxHópur] || "";
-      const coach = idxÞjálfari !== -1 ? row[idxÞjálfari] || "" : "";
+      let group = row[idxHópur] || "";
+      let coach = idxÞjálfari !== -1 ? row[idxÞjálfari] || "" : "";
       const start = row[idxStart] || "";
       const end = idxEnd !== -1 ? row[idxEnd] || "" : "";
-      const timeLabel = end ? `${start}-${end}` : start;
+
+      // Hide header-like text that might be stored in the sheet
+      if (group === "Hópur") group = "";
+      if (coach === "Þjálfari") coach = "";
+
+      const timeLabelRaw = end ? `${start}-${end}` : start;
+      const timeLabel = timeLabelRaw === "Tími" ? "" : timeLabelRaw;
 
       addCell(table, group, "data-row");
       addCell(table, coach, "data-row");
