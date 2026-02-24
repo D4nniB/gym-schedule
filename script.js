@@ -132,8 +132,30 @@ function equalIcelandicDay(a, b) {
 
 function timeToMinutes(timeStr) {
   if (!timeStr) return Number.POSITIVE_INFINITY;
-  const [h, m] = timeStr.split(":").map(Number);
-  if (Number.isNaN(h) || Number.isNaN(m)) return Number.POSITIVE_INFINITY;
-  return h * 60 + m;
+  const trimmed = timeStr.toString().trim();
+
+  // Formats we support:
+  // "17" or "9"        -> hours only
+  // "17:00" or "9:30"  -> hours:minutes
+  // "17.00" or "9.30"  -> hours.minutes
+
+  // Hours only
+  if (/^\d{1,2}$/.test(trimmed)) {
+    const hOnly = Number(trimmed);
+    if (Number.isNaN(hOnly)) return Number.POSITIVE_INFINITY;
+    return hOnly * 60;
+  }
+
+  // Hours + minutes with ":" or "."
+  const parts = trimmed.split(/[:.]/);
+  if (parts.length === 2) {
+    const h = Number(parts[0]);
+    const m = Number(parts[1]);
+    if (Number.isNaN(h) || Number.isNaN(m)) return Number.POSITIVE_INFINITY;
+    return h * 60 + m;
+  }
+
+  // Fallback: unknown format goes last
+  return Number.POSITIVE_INFINITY;
 }
 
