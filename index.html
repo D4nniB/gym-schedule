@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="is">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ad Display</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Lyftingaklefi – Tímatafla</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="slideshow">
-    <!-- Slides are built from config.js (Google Drive file IDs) -->
+  <div id="overlay">
+    <h1 id="title">Lyftingaklefi</h1>
+    <div id="table">
+      <div class="cell header"><span class="cell-inner">Tími</span></div>
+      <div class="cell header"><span class="cell-inner">Hópur</span></div>
+      <div class="cell header"><span class="cell-inner">Þjálfari</span></div>
+      <!-- Data rows for today will be injected by script.js -->
+    </div>
+
+    <div id="day-label"></div>
+    <div id="error-message" aria-live="polite"></div>
   </div>
 
-  <div class="progress-bar" aria-hidden="true">
-    <div class="progress-fill"></div>
-  </div>
-
-  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
