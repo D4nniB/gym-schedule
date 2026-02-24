@@ -75,9 +75,9 @@ async function initSchedule() {
       timeLabelRaw = timeLabelRaw.replace(/^Tími\s*/i, "").trim();
       const timeLabel = timeLabelRaw;
 
+      addCell(table, timeLabel, "data-row");
       addCell(table, group, "data-row");
       addCell(table, coach, "data-row");
-      addCell(table, timeLabel, "data-row");
     }
   } catch (err) {
     console.error(err);

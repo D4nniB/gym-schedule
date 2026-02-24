@@ -29,16 +29,28 @@ body {
   aspect-ratio: 1024 / 738;
 }
 
+#title {
+  position: absolute;
+  top: 145px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+
 #table {
   position: absolute;
-  /* Table positioned higher, just below the dumbbell icon */
-  top: 140px;
+  /* Table positioned below the title */
+  top: 205px;
   left: 146px;
   width: 735px;
   height: 360px;
 
   display: grid;
-  grid-template-columns: 1.15fr 1.15fr 0.9fr;
+  grid-template-columns: 0.9fr 1.15fr 1.15fr;
   grid-auto-rows: minmax(40px, auto);
   /* Rows start at the top of the white frame */
   align-content: start;
@@ -65,15 +77,15 @@ body {
   background-color: #ffffff;
 }
 
-/* First inner vertical line (between column 1 and 2) - match 1.15fr | 1.15fr | 0.9fr */
+/* First inner vertical line (between column 1 and 2) - match 0.9fr | 1.15fr | 1.15fr */
 #table::before {
-  left: 35.9375%;
+  left: 28.125%;
   transform: translateX(-2px);
 }
 
 /* Second inner vertical line (between column 2 and 3) */
 #table::after {
-  left: 71.875%;
+  left: 64.0625%;
   transform: translateX(-2px);
 }
 
