@@ -88,7 +88,10 @@ async function initSchedule() {
 function addCell(table, text, rowClass) {
   const div = document.createElement("div");
   div.className = `cell ${rowClass}`;
-  div.textContent = text;
+  const inner = document.createElement("span");
+  inner.className = "cell-inner";
+  inner.textContent = text;
+  div.appendChild(inner);
   table.appendChild(div);
 }
 
