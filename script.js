@@ -67,12 +67,13 @@ async function initSchedule() {
       const start = row[idxStart] || "";
       const end = idxEnd !== -1 ? row[idxEnd] || "" : "";
 
-      // Hide header-like text that might be stored in the sheet
-      if (group === "Hópur") group = "";
-      if (coach === "Þjálfari") coach = "";
+      // Cells may contain "Hópur Mfl Frjálsar" etc. Strip the leading label.
+      group = group.replace(/^Hópur\s*/i, "").trim();
+      coach = coach.replace(/^Þjálfari\s*/i, "").trim();
 
-      const timeLabelRaw = end ? `${start}-${end}` : start;
-      const timeLabel = timeLabelRaw === "Tími" ? "" : timeLabelRaw;
+      let timeLabelRaw = end ? `${start}-${end}` : start;
+      timeLabelRaw = timeLabelRaw.replace(/^Tími\s*/i, "").trim();
+      const timeLabel = timeLabelRaw;
 
       addCell(table, group, "data-row");
       addCell(table, coach, "data-row");

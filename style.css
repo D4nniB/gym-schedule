@@ -49,15 +49,14 @@ body {
 
 .cell {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding: 12px 10px 0;
+  padding: 8px 10px;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
 
 .cell.header {
   font-weight: 500;
-  align-items: center;
   padding-top: 0;
 }
 
