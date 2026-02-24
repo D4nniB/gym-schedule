@@ -1,0 +1,7 @@
+{
+  "name": "ad-screen",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "npx --yes serve -l 3000"
+  }
+}
