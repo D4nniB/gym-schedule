@@ -42,7 +42,8 @@ body {
   grid-auto-rows: minmax(40px, auto);
   /* Rows start at the top of the white frame */
   align-content: start;
-  justify-items: center;
+  /* Stretch cells full column width so text can center in each column */
+  justify-items: stretch;
 
   text-align: center;
   font-size: 28px;
@@ -81,6 +82,7 @@ body {
   /* Top of cell on y-axis, center on x-axis */
   align-items: flex-start;
   justify-content: center;
+  text-align: center;
   padding: 8px 10px;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
